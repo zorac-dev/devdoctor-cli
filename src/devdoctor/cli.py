@@ -1,7 +1,7 @@
 import argparse
 
 from devdoctor.checks.system import get_system_info
-from devdoctor.checks.tools import check_git
+from devdoctor.checks.tools import check_development_tools
 from devdoctor.models import Status
 from devdoctor.report import print_report
 
@@ -32,7 +32,7 @@ def main() -> int:
 
     if args.command == "check":
         system_info = get_system_info()
-        results = [check_git()]
+        results = check_development_tools()
 
         print_report(system_info, results)
 
